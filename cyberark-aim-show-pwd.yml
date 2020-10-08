@@ -1,0 +1,14 @@
+---
+- name: test cyberark password pulling via AIM
+  hosts: localhost
+  gather_facts: false
+  vars:
+
+  tasks:
+  - name: display encrypted password
+    debug: 
+      var: ca_encrypted
+
+  - name: echo on shell
+    shell: "echo {{ ca_encrypted }}"
+    no_log: True
