@@ -1,0 +1,15 @@
+- name: Update backup user via cyberark
+  hosts: cat_upgrade
+#  hosts: "{{ limit_hosts }}"
+  gather_facts: false
+  vars:
+  tasks:
+
+  - name: Change Password for User backup
+    ios_user:
+      name: backup
+      configured_password: "{{ ca_encrypted }}"
+      update_password: always
+      state: present
+      privilege: 15
+    no_log: true
