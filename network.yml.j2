@@ -1,0 +1,12 @@
+---
+- &vars
+  - !variable password
+  - !variable ansible
+
+- &tower_hosts
+  - !host tower
+
+- !permit
+  roles: !host tower
+  privilege: [ read, execute ]
+  resources: *vars 
